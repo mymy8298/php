@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    
     if (isset($_POST['dangky'])){
         //Nhúng file kết nối với database
         include('config.php');

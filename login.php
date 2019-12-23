@@ -1,6 +1,5 @@
 <?php
 //Khai báo sử dụng session
-session_start();
 //Kết nối tới database
 include('config.php');
 //Khai báo utf-8 để hiển thị được tiếng việt
