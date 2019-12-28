@@ -36,7 +36,7 @@ header('Content-Type: text/html; charset=UTF-8');?>
 		</div>
 		<div class="nav-right">
 			<ul class="nav">
-				<li><a href="logout.php">Đăng xuất</a></li>
+				<li><a><?php echo $_SESSION['TenTK'],'&nbsp';?></a><a href="logout.php">Đăng xuất</a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
