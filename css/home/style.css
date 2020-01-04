@@ -90,7 +90,16 @@ body {
 }
 /* Menu */
 .menu {	
-	float:left;
+	float: left;
+	width: 130px;
+	height: 50px;
+	margin: auto;
+}
+.menu form {
+	float: left;
+	width: 250px;
+	height: 50px;
+	margin-left: auto;
 }
 .menu li {
 	position: relative;
