@@ -6,7 +6,7 @@
 		require_once 'config.php';
 		header('Content-Type: text/html; charset=UTF-8');
 		if (!isset($_SESSION['TenTK'])){
-			die('');
+			die("<center><strong>Bạn phải đăng nhập để xem nội dung. <a href='login.php'>Đến trang đăng nhập</a></strong></center>");
 		} 
 	?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
