@@ -18,7 +18,7 @@
 	</br>Đề <?php echo $_SESSION['sode'];?></h1><br>
 	<center><form method='post' ></center>
 	<?php
-		$query = 'SELECT * FROM cauhoi Where MaDe ='.$_POST['de'];
+		$query = 'SELECT * FROM cauhoi Where MaDe ='.$_SESSION['sode'];
 		$response = mysqli_query($db,$query);
 			$b = 1;
 			$d = 0;
