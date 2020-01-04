@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="css/styleTN.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/styleTN.css" media="all" />
 </head>
 
 <body>
@@ -29,6 +29,7 @@
 	<input type="hidden" name="de" value="<?php echo $result['MaDe'];?>">
 	<div id="question_<?php echo $a;?>" class='questions'>
 		<h2 id="question_<?php echo $a;?>"><?php echo $a.".".$result['ND'];?></h2>
+		<img src="<?php echo $result['img'];?>" width="50%">
 		<div class='align'>
 			<input type="radio" value="1" id='radio1_
 			<?php echo $result['MaCH'];?>' name='<?php echo $result['MaCH'];?>'>
@@ -53,6 +54,7 @@
 		}
 	}
 	?>
+
 </form>
 	<br/><input type="submit" value='Nộp bài' name='kiemtra' class='butt'/><br/>
 	<?php
@@ -68,7 +70,7 @@
         <span class="article-link"><a> Đào Lê Duy Hùng ĐHCN3A, Nguyễn Thị Trà My ĐHCN3C</a></span>
     </span>
 </div> -->
-    
+	
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/watch.js"></script>
 
