@@ -16,7 +16,7 @@
 <body>
 	<h1> Bài làm của <?php echo $_SESSION['TenTK'];?>
 	</br>Đề <?php echo $_SESSION['sode'];?></h1><br>
-	<center><form method='post' >
+	<center><form method='post' ></center>
 	<?php
 		$query = 'SELECT * FROM cauhoi Where MaDe ='.$_POST['de'];
 		$response = mysqli_query($db,$query);
@@ -37,12 +37,12 @@
 			}
 			$kq = 10/($b - 1)*$d;
 			$diem = round((float) $kq, 2);
-			echo"<br><strong><span class='diem'> Kết Quả: {$diem} điểm </span></strong><br>";
+			echo"<br><center><strong><span class='diem'> Kết Quả: {$diem} điểm </span></strong></center><br>";
 	?>
 		<br/>
-			<input type="submit" value='Về trang chủ' name ='ve' class='butt'/>
+			<center><input type="submit" value='Về trang chủ' name ='ve' class='butt'/></center>
 		<br/>
-	</form></center>
+	</form>
 	<?php
 	if (isset($_POST['ve'])) {
 		header("Location: trangchu.php");
