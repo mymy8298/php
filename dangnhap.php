@@ -26,7 +26,7 @@ if (isset($_POST['dangnhap']))
     //$password = md5($password);
      
     //Kiểm tra tên đăng nhập có tồn tại không
-    $query = mysqli_query($db,"SELECT TenTK, Pass FROM user WHERE TenTK='$username'");
+    $query = mysqli_query($db,"SELECT * FROM user WHERE TenTK='$username'");
     if (mysqli_num_rows($query) == 0) {
         echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
         exit;
@@ -42,8 +42,15 @@ if (isset($_POST['dangnhap']))
     }
   
     //Lưu tên đăng nhập
-    $_SESSION['TenTK'] = $username;
-    header("Location: TrangChu.php");
-    exit;
+    if($row['pl']==1) {
+        $_SESSION['TenTK'] = $username;
+        header("Location: admin.php");
+        exit;
+    }
+    if($row['pl']==2) {
+        $_SESSION['TenTK'] = $username;
+        header("Location: trangchu.php");
+        exit;
+    }
 }
 ?>
