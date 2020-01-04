@@ -22,6 +22,18 @@ margin-left: 25px;
 display: none;
 margin: 50px 0 0 420px;
 }
+.kq{
+text-align:center;
+color: white;
+font-size: 20px;
+margin-top: 30px;
+}
+.diem{
+text-align:center;
+color: white;
+font-size: 30px;
+margin-top: 30px;
+}
 #quiz_form{
   margin-left: 200px;
   margin: 50px 0px 0px 100px;
@@ -30,7 +42,7 @@ margin: 50px 0 0 420px;
     background: none repeat scroll 0 0 orange;
     border: 2px solid orange;
     height: 40px;
-    margin: 20px 0 0 50px;
+    margin: auto;
     width: 170px;
 }
 .hide{
@@ -58,7 +70,6 @@ Thanks :)*/
     height: 45px;
     line-height: 45px;
     background: #111;
-    border-top: 1px solid #E62600;
     position: fixed;
     bottom: 0;
     left: 0;
