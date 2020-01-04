@@ -21,7 +21,10 @@
 		</div> -->
 		<div class="nav-right">
 			<ul class="nav">
-				<li><a><?php echo $_SESSION['TenTK'],'&nbsp';?></a><a href="logout.php">Đăng xuất</a></li>
+				<li>
+					<p><?php echo $_SESSION['TenTK'],'&nbsp';?>
+						<a href="logout.php">Đăng xuất</a></p>
+				</li>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -39,7 +42,7 @@
 		<!-- <div class="grid-img">
 				<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
 		</div> -->
-		<p><?php echo "Đề ".$row["MaDe"]?></p>
+		<h2><?php echo "Đề ".$row["MaDe"]?></h2>
 		<!-- <div class="btn right"><a href="text.php?de=<?php echo $row["MaDe"]?>">Làm bài</a></div> -->
 		<form method='post' action="text.php" accept-charset="utf-8">
 			<input type="hidden" name="sode" value="<?php echo $row["MaDe"];?>">
