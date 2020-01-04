@@ -39,7 +39,7 @@
 		<!-- <div class="grid-img">
 				<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
 		</div> -->
-		<p><?php echo "De ".$row["MaDe"]?></p>
+		<p><?php echo "Đề ".$row["MaDe"]?></p>
 		<!-- <div class="btn right"><a href="text.php?de=<?php echo $row["MaDe"]?>">Làm bài</a></div> -->
 		<form method='post' action="text.php" accept-charset="utf-8">
 			<input type="hidden" name="sode" value="<?php echo $row["MaDe"];?>">
