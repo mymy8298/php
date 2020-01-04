@@ -13,8 +13,12 @@ if (isset($_POST['dangnhap']))
     $password = addslashes($_POST['txtPassword']);
      
     //Kiểm tra đã nhập đủ tên đăng nhập với mật khẩu chưa
-    if (!$username || !$password) {
+    if (!$username || !$username && !$password) {
         echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        exit;
+    }
+    if (!$password) {
+        echo "Vui lòng nhập mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
         exit;
     }
      
@@ -42,9 +46,4 @@ if (isset($_POST['dangnhap']))
     header("Location: TrangChu.php");
     exit;
 }
-    if (isset($_POST['dangky'])) 
-    {
-        header("Location: dangky.php");
-        exit;
-    }
 ?>
