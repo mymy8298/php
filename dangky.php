@@ -8,6 +8,7 @@
         $tenuser   = addslashes($_POST['txttenuser']);
         $gioitinh        = addslashes($_POST['txtgioitinh']);
         $sodt        = addslashes($_POST['txtsodt']);
+        $pl = 2;
             
         if (!$TenTK || !$matkhau || !$email || !$tenuser || !$gioitinh || !$sodt)
         {
@@ -33,7 +34,8 @@
                 TenUser,
                 GioiTinh,
                 Phone,
-                Email
+                Email,
+                pl
             )
             VALUE (
                 '{$TenTK}',
@@ -41,12 +43,13 @@
                 '{$tenuser}',
                 '{$gioitinh}',
                 '{$sodt}',
-                '{$email}'
+                '{$email}',
+                '{$pl}'
             )
         ");
                             
         if ($adduser)
-        {
+        {   
             $_SESSION['TenTK'] = $TenTK;
             header("Location: TrangChu.php");
             exit;
