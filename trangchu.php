@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?php 
-		require_once 'config.php';
+		include('config.php');
 		header('Content-Type: text/html; charset=UTF-8');
 		if (!isset($_SESSION['TenTK'])){
 			die("<center><strong>Bạn phải đăng nhập để xem nội dung. <a href='login.php'>Đến trang đăng nhập</a></strong></center>");
@@ -27,21 +27,57 @@
 				</li>
 			</ul>
 		</div>
+		<br>
+		<div class="nav-left">
+			<ul class="nav">
+				<li>
+					<a href="trangchu.php">Home</a>&nbsp;			
+				</li>
+			</ul>
+		</div>
 		<div class="clear"></div>
 	</div>
 <div class="text-h">
 	<h2>Web Luyện Thi Trắc Nghiệm</h2>
+</div >
+
+	<?php 
+		$query = 'SELECT * FROM monhoc';
+		$response = mysqli_query($db,$query);
+		while ($row = mysqli_fetch_array($response)){
+	?>	
+<div class="menu">	
+	<form method='post' action="trangchu.php#">
+		<input type="hidden" name="mon" value="<?php echo $row["mamh"];?>">
+		<input type="submit" name ='mh' value='<?php echo $row["tenmh"]; ?>'/>
+		<?php
+			if (!isset($_POST['mh'])) {
+				$query = 'SELECT * FROM De,monhoc';
+				// header("Location: de.php");
+				// exit;
+			} else {
+				$_SESSION["mon"] = $_POST["mon"];
+				$query = 'SELECT * FROM De,monhoc WHERE mamh ='.$_SESSION["mon"];
+			}
+		?>
+		</form>
 </div>
-<div class="section group">
-    <?php 
-        $query = 'SELECT * FROM De';
-        $response = mysqli_query($db,$query);
+	<?php 
+		}
+	?>
+	
+	
+<div class="section group">	
+    <?php 	
+		// $query = 'SELECT * FROM De,monhoc';
+		$response = mysqli_query($db,$query);
         while ($row = mysqli_fetch_array($response)){ 
-    ?>
+	?>
 	<div class="col_1_of_3 span_1_of_3">
 		<!-- <div class="grid-img">
 				<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
 		</div> -->
+		<h2><?php echo $row["tenmh"]?></h2><br>
 		<h2><?php echo "Đề ".$row["MaDe"]?></h2>
 		<!-- <div class="btn right"><a href="text.php?de=<?php echo $row["MaDe"]?>">Làm bài</a></div> -->
 		<form method='post' action="text.php" accept-charset="utf-8">
@@ -59,6 +95,7 @@
     <?php 
         }
     ?>
+
 </div>
 <div class="footer">
 	<div class="section group">
