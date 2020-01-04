@@ -59,7 +59,7 @@
   font-size: 14px;
 }
 .form input[type="submit"] {
-  font-family: "Roboto", sans-serif;
+  font-family: "lobster", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #204b98;
@@ -67,7 +67,7 @@
   border: 0;
   padding: 15px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 15px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
