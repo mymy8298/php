@@ -53,7 +53,7 @@
     <?php 
         } 
         if (isset($_POST['del'])) {
-            $del = "DELETE FROM user WHERE TenTK='".$_POST["tk"]."'";
+            $del =  mysqli_query($db,"DELETE FROM user WHERE TenTK='".$_POST["tk"]."'");
             header("Location: admin.php");
             exit;
         }
@@ -89,14 +89,12 @@
     <?php 
         }     
     if (isset($_POST['del1'])) {
-        $del1 = "DELETE FROM user WHERE TenTK='".$_POST["tk1"]."'";
+        $del1 = mysqli_query($db,"DELETE FROM user WHERE TenTK='".$_POST["tk1"]."'");
         header("Location: admin.php");
-        exit;
     }
     if (isset($_POST['down'])) {
         $down = mysqli_query($db,"UPDATE user SET pl = 2 WHERE TenTK='".$_POST["tk1"]."'");
         header("Location: admin.php");
-        exit;
     }		
     ?>
 </div>
