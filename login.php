@@ -11,7 +11,7 @@
 <div class="login-page">
   <div class="form">
  
-    <form class="login-form" action='Login.php' method='POST'>
+    <form class="login-form" action='dangnhap.php' method='POST'>
       <input type="text" name='txtUsername' placeholder="Tên Tài Khoản" />
       <input type="password" name='txtPassword' placeholder="Mật Khẩu"  />
       
@@ -19,12 +19,12 @@
       <p class="message">Chưa có tài khoản? <a href="login.php#">Đăng ký</a></p>
     </form>
 
-    <form class="register-form" action='Login.php' method='POST'>
+    <form class="register-form" action='dangky.php' method='POST'>
       <input type="text" name="txtTenTK" placeholder="Tên đăng nhập" />                         
       <input type="password" name="txtmatkhau" placeholder="Mật Khẩu"/>
       <input type="text" name="txtEmail"  placeholder="Email"/>
       <input type="text" name="txttenuser"  placeholder="Họ và tên"/>
-      <input type="text" name="gioitinh"  placeholder="Giới tính" disabled maxlength="10" />
+      <input type="text" name="gioitinh"  placeholder="Giới tính" disabled />
         <input type="radio" name="txtgioitinh" value="nam"/>Nam &nbsp;
         <input type="radio" name="txtgioitinh" value="nu"/>Nữ &nbsp;
         <input type="radio" name="txtgioitinh" value="khac"/>Khác &nbsp;     
