@@ -1,81 +1,59 @@
-<?php
-//Khai báo sử dụng session
-//Kết nối tới database
-include('config.php');
-//Khai báo utf-8 để hiển thị được tiếng việt
-header('Content-Type: text/html; charset=UTF-8');
- 
-//Xử lý đăng nhập
-if (isset($_POST['dangnhap'])) 
-{
-    //Lấy dữ liệu nhập vào
-    $username = addslashes($_POST['txtUsername']);
-    $password = addslashes($_POST['txtPassword']);
-     
-    //Kiểm tra đã nhập đủ tên đăng nhập với mật khẩu chưa
-    if (!$username || !$password) {
-        echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
-        exit;
-    }
-     
-    // mã hóa pasword
-    //$password = md5($password);
-     
-    //Kiểm tra tên đăng nhập có tồn tại không
-    $query = mysqli_query($db,"SELECT TenTK, MatKhau FROM user WHERE TenTK='$username'");
-    if (mysqli_num_rows($query) == 0) {
-        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
-        exit;
-    }
-     
-    //Lấy mật khẩu trong database ra
-    $row = mysqli_fetch_array($query);
-     
-    //So sánh 2 mật khẩu có trùng khớp hay không
-    if ($password != $row['MatKhau']) {
-        echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
-        exit;
-    }
-  
-    //Lưu tên đăng nhập
-    $_SESSION['TenTK'] = $username;
-    header("Location: TrangChu.php");
-    exit;
-}
-    if (isset($_POST['dangky'])) 
-    {
-        header("Location: dangky.php");
-        exit;
-    }
-?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <!-- <title>Login form using HTML5 and CSS3</title> -->
-        <link rel="stylesheet" href="css/style.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng Nhập</title>
+  <link rel="stylesheet" href="css/register/style.css">
+  <link rel="stylesheet" href="css/login/style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-page">
+  <div class="form">
+ 
+    <form class="login-form" action='Login.php' method='POST'>
+      <input type="text" name='txtUsername' placeholder="Tên Tài Khoản" />
+      <input type="password" name='txtPassword' placeholder="Mật Khẩu"  />
+      
+      <input type="submit" name="dangnhap" value="Đăng nhập" />
+      <p class="message">Chưa có tài khoản? <a href="login.php#">Đăng ký</a></p>
+    </form>
 
-    <body>
-    <div class="container">
-	    <section id="content">
-        <form action='Login.php?do=login' method='POST'>
+    <form class="register-form" action='Login.php' method='POST'>
+      <input type="text" name="txtTenTK" placeholder="Tên đăng nhập" />                         
+      <input type="password" name="txtmatkhau" placeholder="Mật Khẩu"/>
+      <input type="text" name="txtEmail"  placeholder="Email"/>
+      <input type="text" name="txttenuser"  placeholder="Họ và tên"/>
+      <input type="text" name="gioitinh"  placeholder="Giới tính" disabled maxlength="10" />
+        <input type="radio" name="txtgioitinh" value="nam"/>Nam &nbsp;
+        <input type="radio" name="txtgioitinh" value="nu"/>Nữ &nbsp;
+        <input type="radio" name="txtgioitinh" value="khac"/>Khác &nbsp;     
+      <input type="text" name="txtsodt"  placeholder=" Số Điện Thoại"/>
 
-            <div>
-				<input type="text" name='txtUsername' placeholder="Tên Tài Khoản" />
-			</div>
-			<div>
-				<input type="password" name='txtPassword' placeholder="Mật Khẩu"  />
-			</div>
-			<div>
-				<input type="submit" name="dangnhap" value="Đăng nhập" />
-				<input type="submit" name='dangky' value="Đăng ký" />
-			</div>
-		</form>
-	    </section>
-
-    <script src="js/index.js"></script>
-    </body>
+      <input type="submit" name='dangky' value="Đăng ký" />
+      <p class="message">Đã tạo tài khoản? <a href="login.php#">Đăng nhập</a></p>
+    </form>
+  </div>
+  <ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+</div>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="css/login/script.js"></script>
+  <script src="js/index.js"></script> 
+  <?php 
+    include('dangky.php');
+    include('dangnhap.php');
+  ?>  
+</body>
 </html>
