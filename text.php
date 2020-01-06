@@ -16,18 +16,22 @@
 		$_SESSION['mamh']= $_POST['mamh'];
 		$_SESSION['sode']= $_POST['sode'];
 	?>
-<h1><?php echo "Trắc nghiệm môn ".$_SESSION["tenmh"]."<br> Đề ".$_SESSION["sode"].""?></h1>
+
 	
 <form action="kq.php" method='post' class='quiz_form' id='quiz_form' accept-charset="utf-8">
-
+	
 	<?php 
 		$query = "SELECT * FROM cauhoi Where MaDe ='".$_POST['sode']."' and mamh = '".$_POST['mamh']."' Order By Rand()";
 		$response = mysqli_query($db,$query);
 			if (mysqli_num_rows($response) > 0){
 				$a = 0;
+	?>
+	<h1><?php echo "Trắc nghiệm môn ".$_SESSION["tenmh"]."<br> Đề ".$_SESSION["sode"].""?></h1>
+	<?php
 			while($result=mysqli_fetch_array($response)){
 				$a++;
 	?>
+	
 	<div id="question_<?php echo $a;?>" class='questions'>
 		<h2 id="question_<?php echo $a;?>"><?php echo $a.".".$result['ND'];?></h2>
 		<img src="<?php echo $result['img'];?>" width="50%">
@@ -53,11 +57,16 @@
 
 	<?php 
 		}
+	?>
+		<br/><input type="submit" value='Nộp bài' name='kiemtra' class='butt'/><br/>
+	<?php
+	}else {
+		echo "<h1>Đề chưa có câu hỏi <a href='trangchu.php'>Trở lại trang chủ</a></h1>";
 	}
 	?>
 
 </form>
-	<br/><input type="submit" value='Nộp bài' name='kiemtra' class='butt'/><br/>
+	
 	<?php
 		if (isset($_POST['kiemtra'])) {
 			header("Location: kq.php");
