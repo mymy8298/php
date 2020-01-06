@@ -12,21 +12,22 @@
 	<?php 
 		include 'config.php';
 		header('Content-Type: text/html; charset=UTF-8');
+		$_SESSION["tenmh"]= $_POST["tenmh"];
+		$_SESSION['mamh']= $_POST['mamh'];
 		$_SESSION['sode']= $_POST['sode'];
 	?>
-<h1>Hãy trả lời những câu hỏi bên dưới</h1>
+<h1><?php echo "Trắc nghiệm môn ".$_SESSION["tenmh"]."<br> Đề ".$_SESSION["sode"].""?></h1>
 	
 <form action="kq.php" method='post' class='quiz_form' id='quiz_form' accept-charset="utf-8">
 
 	<?php 
-		$query = "SELECT * FROM cauhoi Where MaDe ='".$_POST['sode']."' Order By Rand()";
+		$query = "SELECT * FROM cauhoi Where MaDe ='".$_POST['sode']."' and mamh = '".$_POST['mamh']."' Order By Rand()";
 		$response = mysqli_query($db,$query);
 			if (mysqli_num_rows($response) > 0){
 				$a = 0;
 			while($result=mysqli_fetch_array($response)){
 				$a++;
 	?>
-	<input type="hidden" name="de" value="<?php echo $result['MaDe'];?>">
 	<div id="question_<?php echo $a;?>" class='questions'>
 		<h2 id="question_<?php echo $a;?>"><?php echo $a.".".$result['ND'];?></h2>
 		<img src="<?php echo $result['img'];?>" width="50%">
