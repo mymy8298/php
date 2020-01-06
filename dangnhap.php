@@ -34,7 +34,8 @@ if (isset($_POST['dangnhap']))
      
     //Lấy mật khẩu trong database ra
     $row = mysqli_fetch_array($query);
-     
+    $_SESSION['TenTK'] = $username;
+    $_SESSION['Ten'] = $row['TenUser'];
     //So sánh 2 mật khẩu có trùng khớp hay không
     if ($password != $row['Pass']) {
         echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
@@ -42,14 +43,12 @@ if (isset($_POST['dangnhap']))
     }
   
     //Lưu tên đăng nhập
-    if($row['pl']==1) {
-        $_SESSION['TenTK'] = $username;
+    if($row['pl']==1) {    
         $_SESSION['pl']=1;
         header("Location: admin.php");
         exit;
     }
     if($row['pl']==2) {
-        $_SESSION['TenTK'] = $username;
         $_SESSION['pl']=2;
         header("Location: trangchu.php");
         exit;
