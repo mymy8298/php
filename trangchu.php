@@ -21,7 +21,7 @@
 		<div class="nav-right">
 			<ul class="nav">
 				<li>
-					<p><?php echo $_SESSION['TenTK'];?>&nbsp;
+					<p><?php echo $_SESSION['Ten'];?>&nbsp;
 						<a href="doimk.php">Đổi mật khẩu</a>&nbsp;
 						<a href="logout.php">Đăng xuất</a></p>
 				</li>
