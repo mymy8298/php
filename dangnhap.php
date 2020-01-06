@@ -44,11 +44,13 @@ if (isset($_POST['dangnhap']))
     //Lưu tên đăng nhập
     if($row['pl']==1) {
         $_SESSION['TenTK'] = $username;
+        $_SESSION['pl']=1;
         header("Location: admin.php");
         exit;
     }
     if($row['pl']==2) {
         $_SESSION['TenTK'] = $username;
+        $_SESSION['pl']=2;
         header("Location: trangchu.php");
         exit;
     }
