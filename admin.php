@@ -7,8 +7,10 @@
 		if (!isset($_SESSION['TenTK'])){
 			die("<center><strong>Bạn phải đăng nhập để xem nội dung. <a href='login.php'>Đến trang đăng nhập</a></strong></center>");
 		} 
-		if (isset($_SESSION['pl']==1)){
-			die("<center><strong>Bạn không có quyền xem nội dung này. <a href='login.php'>Đến trang đăng nhập</a></strong></center>");
+		if (isset($_SESSION['pl'])){
+			if($_SESSION['pl'] == 2){
+				die("<center><strong>Bạn không có quyền xem nội dung này. <a href='trangchu.php'>Trở lại trang chủ</a></strong></center>");
+			}
 		} 
 	?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
