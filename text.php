@@ -33,7 +33,7 @@
 	?>
 	
 	<div id="question_<?php echo $a;?>" class='questions'>
-		<h2 id="question_<?php echo $a;?>"><?php echo $a.".".$result['ND'];?></h2>
+		<h2 id="question_<?php echo $a;?>"><?php echo $a.". ".$result['ND'];?></h2>
 		<img src="<?php echo $result['img'];?>" width="50%">
 		<div class='align'>
 			<input type="radio" value="1" id='radio1_
