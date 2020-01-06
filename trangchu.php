@@ -100,8 +100,26 @@
     ?>
 
 </div>
+</div>
 
-
+	
+	<div class="footer">
+		<div class="section group">
+			<div class="col_1_of_2 span_1_of_2">
+				<h2>Phát triển phần mềm mã nguồn mở</h2>
+				<ul class="nav1">
+					<li><a>GVHD: Nguyễn Văn Hoàn</a></li>
+				</ul>
+			</div>
+			<div class="col_1_of_4 span_1_of_4">
+				<h2>Thành Viên Nhóm</h2>
+				<ul class="nav1">
+					<li><a>Đào Lê Duy Hùng ĐHCN3A</a></li><br>
+					<li><a>Nguyễn Thị Trà My ĐHCN3C</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<ul class="colorlib-bubbles">
 		<li></li>
 		<li></li>
@@ -114,23 +132,6 @@
 		<li></li>
 		<li></li>
 	</ul>
-	<div class="footer">
-	<div class="section group">
-		<div class="col_1_of_2 span_1_of_2">
-			<h2>Phát triển phần mềm mã nguồn mở</h2>
-            <ul class="nav1">
-                <li><a>GVHD: Nguyễn Văn Hoàn</a></li>
-			</ul>
-		</div>
-		<div class="col_1_of_4 span_1_of_4">
-			<h2>Thành Viên Nhóm</h2>
-			<ul class="nav1">
-				<li><a>Đào Lê Duy Hùng ĐHCN3A</a></li><br>
-				<li><a>Nguyễn Thị Trà My ĐHCN3C</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
-</div>
+
 </body>
 </html>
