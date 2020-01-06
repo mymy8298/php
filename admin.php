@@ -7,6 +7,9 @@
 		if (!isset($_SESSION['TenTK'])){
 			die("<center><strong>Bạn phải đăng nhập để xem nội dung. <a href='login.php'>Đến trang đăng nhập</a></strong></center>");
 		} 
+		if (isset($_SESSION['pl']==1)){
+			die("<center><strong>Bạn không có quyền xem nội dung này. <a href='login.php'>Đến trang đăng nhập</a></strong></center>");
+		} 
 	?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="css/home/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -24,6 +27,13 @@
 					<p>chào admin <?php echo $_SESSION['TenTK'];?> &nbsp;
 						<a href="doimk.php">Đổi mật khẩu</a>&nbsp;
 						<a href="logout.php">Đăng xuất</a></p>
+				</li>
+			</ul>
+		</div>
+		<div class="nav-left">
+			<ul class="nav">
+				<li>
+					<a href="trangchu.php">Home</a>&nbsp;			
 				</li>
 			</ul>
 		</div>
