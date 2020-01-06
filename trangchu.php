@@ -81,11 +81,14 @@
 		<h2><?php echo "Đề ".$row["MaDe"]?></h2>
 		<!-- <div class="btn right"><a href="text.php?de=<?php echo $row["MaDe"]?>">Làm bài</a></div> -->
 		<form method='post' action="text.php" accept-charset="utf-8">
+			<input type="hidden" name="tenmh" value="<?php echo $row["tenmh"];?>">
+			<input type="hidden" name="mamh" value="<?php echo $row["mamh"];?>">
 			<input type="hidden" name="sode" value="<?php echo $row["MaDe"];?>">
 			<input type="submit" value='Làm bài' name ='lam' class='btn right'/>
 		</form>
 		<?php
 			if (isset($_POST['lam'])) {
+				$mamh = $_POST["mamh"];
 				$sode = $_POST["sode"];
 				header("Location: text.php");
 				exit;
@@ -97,7 +100,21 @@
     ?>
 
 </div>
-<div class="footer">
+
+
+	<ul class="colorlib-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<div class="footer">
 	<div class="section group">
 		<div class="col_1_of_2 span_1_of_2">
 			<h2>Phát triển phần mềm mã nguồn mở</h2>
@@ -114,18 +131,6 @@
 		</div>
 	</div>
 </div>
-	<ul class="colorlib-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
 </div>
 </body>
 </html>
