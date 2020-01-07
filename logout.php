@@ -3,6 +3,6 @@
 if (isset($_SESSION['TenTK'])){
     unset($_SESSION['TenTK']); // xóa session login
     }
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 ?>
