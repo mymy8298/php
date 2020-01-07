@@ -41,26 +41,25 @@
 		</div>
 		<div class="clear"></div>
     </div>
-<div class="text-h">
-	<h2>Tài khoản người dùng</h2>
-</div>
-<div class="section group">
-    <?php 
-            $query = "SELECT * FROM user where pl = 2";
-            $response = mysqli_query($db,$query);
-            while ($row = mysqli_fetch_array($response)){ 
-    ?>
-	<div class="col_1_of_3 span_1_of_3">
-		<!-- <div class="grid-img">
-				<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
-        </div> -->
-		<form method='post' action="admin.php" accept-charset="utf-8">
-            <h2><?php echo $row["TenTK"];?></h2>
-            <input type="hidden" name="tk" value="<?php echo $row["TenTK"];?>">
-			<br><input type="submit" name="del" value="Xóa TK" class='btn right'>
-			<input type="submit" name ='up' value="Cấp quyền admin" class='btn left'/>
-		</form>
-
+	<div class="text-h">
+		<h2>Tài khoản người dùng</h2>
+	</div>
+	<div class="section group">
+		<?php 
+				$query = "SELECT * FROM user where pl = 2";
+				$response = mysqli_query($db,$query);
+				while ($row = mysqli_fetch_array($response)){ 
+		?>
+		<div class="col_1_of_3 span_1_of_3">
+			<!-- <div class="grid-img">
+					<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
+			</div> -->
+			<form method='post' action="admin.php" accept-charset="utf-8">
+				<h2><?php echo $row["TenTK"];?></h2>
+				<input type="hidden" name="tk" value="<?php echo $row["TenTK"];?>">
+				<br><input type="submit" name="del" value="Xóa TK" class='btn right'>
+				<input type="submit" name ='up' value="Cấp quyền admin" class='btn left'/>
+			</form>
 	</div>
     <?php 
         } 
@@ -75,40 +74,52 @@
             exit;
         }
 	?>
-    
-</div>
-<div class="text-h">
-	<h2>Tài khoản admin</h2>
-</div>
-<div class="section group">
-    <?php 
-            $query1 = "SELECT * FROM user where pl = 1 and TenTK !='".$_SESSION['TenTK']."'";
-            $response1 = mysqli_query($db,$query1);
-            while ($row1 = mysqli_fetch_array($response1)){ 
-    ?>
-	<div class="col_1_of_3 span_1_of_3">
-		<!-- <div class="grid-img">
-				<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
-        </div> -->
-		<form method='post' action="admin.php" accept-charset="utf-8">
-            <h2><?php echo $row1["TenTK"];?></h2>
-            <input type="hidden" name="tk1" value="<?php echo $row1["TenTK"];?>">
-			<br><input type="submit" name="del1" value="Xóa TK" class='btn right'>
-			<input type="submit" name ='down' value="Truất quyền admin" class='btn left'/>
-        </form>
-        
 	</div>
-    <?php 
-        }     
-    if (isset($_POST['del1'])) {
-        $del1 = mysqli_query($db,"DELETE FROM user WHERE TenTK='".$_POST["tk1"]."'");
-        header("Location: admin.php");
-    }
-    if (isset($_POST['down'])) {
-        $down = mysqli_query($db,"UPDATE user SET pl = 2 WHERE TenTK='".$_POST["tk1"]."'");
-        header("Location: admin.php");
-    }		
-    ?>
+	<div class="text-h">
+		<h2>Tài khoản admin</h2>
+	</div>
+	<div class="section group">
+		<?php 
+				$query1 = "SELECT * FROM user where pl = 1 and TenTK !='".$_SESSION['TenTK']."'";
+				$response1 = mysqli_query($db,$query1);
+				while ($row1 = mysqli_fetch_array($response1)){ 
+		?>
+		<div class="col_1_of_3 span_1_of_3">
+			<!-- <div class="grid-img">
+					<a href="details.html"><img src="images/pic4.jpg" alt=""/></a> 
+			</div> -->
+			<form method='post' action="admin.php" accept-charset="utf-8">
+				<h2><?php echo $row1["TenTK"];?></h2>
+				<input type="hidden" name="tk1" value="<?php echo $row1["TenTK"];?>">
+				<br><input type="submit" name="del1" value="Xóa TK" class='btn right'>
+				<input type="submit" name ='down' value="Truất quyền admin" class='btn left'/>
+			</form>
+			
+		</div>
+		<?php 
+			}     
+		if (isset($_POST['del1'])) {
+			$del1 = mysqli_query($db,"DELETE FROM user WHERE TenTK='".$_POST["tk1"]."'");
+			header("Location: admin.php");
+		}
+		if (isset($_POST['down'])) {
+			$down = mysqli_query($db,"UPDATE user SET pl = 2 WHERE TenTK='".$_POST["tk1"]."'");
+			header("Location: admin.php");
+		}		
+		?>
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
 </div>
 <div class="footer">
 	<div class="section group">
@@ -127,18 +138,6 @@
 		</div>
 	</div>
 </div>
-	<ul class="colorlib-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</div>
+
 </body>
 </html>
