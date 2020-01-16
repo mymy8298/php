@@ -15,8 +15,8 @@
 
 <body>
 	<h1> Bài làm của <?php echo $_SESSION['TenTK'];?>
-	</br>Môn <?php echo $_SESSION["tenmh"];?></h1><br>
-	</br>Đề <?php echo $_SESSION['sode'];?></h1><br>
+	</br>Môn <?php echo $_SESSION["tenmh"];?> &nbsp; 
+	Đề <?php echo $_SESSION['sode'];?></h1><br>
 	<center><form method='post' ></center>
 	<?php
 		$query = "SELECT * FROM cauhoi Where MaDe ='".$_SESSION['sode']."' and mamh = '".$_SESSION['mamh']."'";
